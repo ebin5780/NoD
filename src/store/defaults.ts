@@ -1,0 +1,206 @@
+import type { SemesterConfig, Subject, Task } from "@/types";
+
+export const DEFAULT_SEMESTER_CONFIG: SemesterConfig = {
+  semesterName: "2026-1학기",
+  totalWeeks: 16,
+  startDate: "2026-03-02",
+  targetGpa: 4.5,
+};
+
+export const DEFAULT_SUBJECTS: Subject[] = [
+  {
+    id: "sub-algorithm",
+    name: "알고리즘",
+    code: "CSE3001",
+    professor: "김교수",
+    classroom: "공학관 301",
+    color: "#3B82F6",
+    credits: 3,
+    syllabus: {
+      attendance: 10,
+      assignment: 30,
+      midterm: 30,
+      final: 30,
+      etc: 0,
+    },
+    lmsUrl: "https://lms.university.ac.kr/courses/algorithm",
+    schedule: [
+      {
+        day: "MON",
+        startPeriod: 1,
+        endPeriod: 2,
+        startTime: "09:00",
+        endTime: "10:15",
+      },
+      {
+        day: "WED",
+        startPeriod: 1,
+        endPeriod: 2,
+        startTime: "09:00",
+        endTime: "10:15",
+      },
+    ],
+  },
+  {
+    id: "sub-os",
+    name: "운영체제",
+    code: "CSE3002",
+    professor: "이교수",
+    classroom: "공학관 405",
+    color: "#10B981",
+    credits: 3,
+    syllabus: {
+      attendance: 10,
+      assignment: 20,
+      midterm: 35,
+      final: 35,
+      etc: 0,
+    },
+    lmsUrl: "https://lms.university.ac.kr/courses/os",
+    schedule: [
+      {
+        day: "TUE",
+        startPeriod: 3,
+        endPeriod: 4,
+        startTime: "11:00",
+        endTime: "12:15",
+      },
+      {
+        day: "THU",
+        startPeriod: 3,
+        endPeriod: 4,
+        startTime: "11:00",
+        endTime: "12:15",
+      },
+    ],
+  },
+  {
+    id: "sub-global-citizen",
+    name: "글로벌 시민의식",
+    code: "GEN1001",
+    professor: "박교수",
+    classroom: "인문관 201",
+    color: "#F59E0B",
+    credits: 2,
+    syllabus: {
+      attendance: 20,
+      assignment: 30,
+      midterm: 20,
+      final: 30,
+      etc: 0,
+    },
+    schedule: [
+      {
+        day: "FRI",
+        startPeriod: 5,
+        endPeriod: 6,
+        startTime: "13:00",
+        endTime: "14:15",
+      },
+    ],
+  },
+];
+
+export const DEFAULT_TASKS: Task[] = [
+  {
+    id: "task-algo-w1-lecture",
+    subjectId: "sub-algorithm",
+    week: 1,
+    title: "1주차 강의: 시간복잡도 개요",
+    type: "LECTURE",
+    isCompleted: true,
+    dueDate: "2026-03-02",
+    isImportant: false,
+  },
+  {
+    id: "task-algo-w1-assignment",
+    subjectId: "sub-algorithm",
+    week: 1,
+    title: "과제 1: Big-O 분석 연습",
+    type: "ASSIGNMENT",
+    isCompleted: false,
+    dueDate: "2026-03-06",
+    isImportant: true,
+  },
+  {
+    id: "task-os-w1-lecture",
+    subjectId: "sub-os",
+    week: 1,
+    title: "1주차 강의: OS 개요 및 프로세스",
+    type: "LECTURE",
+    isCompleted: true,
+    dueDate: "2026-03-03",
+    isImportant: false,
+  },
+  {
+    id: "task-os-w1-quiz",
+    subjectId: "sub-os",
+    week: 1,
+    title: "1주차 퀴즈: 프로세스 vs 스레드",
+    type: "QUIZ",
+    isCompleted: false,
+    dueDate: "2026-03-05",
+    isImportant: true,
+  },
+  {
+    id: "task-gen-w1-assignment",
+    subjectId: "sub-global-citizen",
+    week: 1,
+    title: "1주차 과제: 자기소개 에세이",
+    type: "ASSIGNMENT",
+    isCompleted: true,
+    dueDate: "2026-03-04",
+    isImportant: false,
+  },
+  {
+    id: "task-algo-w2-lecture",
+    subjectId: "sub-algorithm",
+    week: 2,
+    title: "2주차 강의: 정렬 알고리즘",
+    type: "LECTURE",
+    isCompleted: false,
+    dueDate: "2026-03-09",
+    isImportant: false,
+  },
+  {
+    id: "task-algo-w2-assignment",
+    subjectId: "sub-algorithm",
+    week: 2,
+    title: "과제 2: 버블/선택/삽입 정렬 구현",
+    type: "ASSIGNMENT",
+    isCompleted: false,
+    dueDate: "2026-03-13",
+    isImportant: true,
+  },
+  {
+    id: "task-os-w2-assignment",
+    subjectId: "sub-os",
+    week: 2,
+    title: "과제 1: 프로세스 스케줄링 시뮬레이션",
+    type: "ASSIGNMENT",
+    isCompleted: false,
+    dueDate: "2026-03-12",
+    isImportant: true,
+  },
+  {
+    id: "task-gen-w2-etc",
+    subjectId: "sub-global-citizen",
+    week: 2,
+    title: "2주차 토론 준비: SDGs 사례 조사",
+    type: "ETC",
+    isCompleted: false,
+    dueDate: "2026-03-11",
+    isImportant: false,
+  },
+];
+
+export const DEFAULT_CURRENT_WEEK = 1;
+
+export function createDefaultState() {
+  return {
+    semesterConfig: { ...DEFAULT_SEMESTER_CONFIG },
+    subjects: [...DEFAULT_SUBJECTS],
+    tasks: [...DEFAULT_TASKS],
+    currentWeek: DEFAULT_CURRENT_WEEK,
+  };
+}
